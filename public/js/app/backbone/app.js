@@ -23,14 +23,14 @@
     });
 
     App.Views.Users = Backbone.View.extend({
-        tagName: 'ul',
+        tagName: 'tbody',
 
         initialize: function() {
             this.collection.on('add', this.addOne, this);
         },
 
         render: function() {
-            this.el.empty();
+            this.$el.empty();
             this.collection.each(this.addOne, this);
             return this;
         },
@@ -42,14 +42,16 @@
     });
 
     App.Views.User = Backbone.View.extend({
-        tagName: 'li',
+        tagName: 'tr',
+
+        template: $('#userTpl').html(),
 
         initialize: function() {
-            this.model.on('destroy', this.remove, this);
+            //this.model.on('destroy', this.remove, this);
         },
 
         render: function() {
-            this.$el.html(this.model.get('name'));
+            this.$el.html(this.template(this.model.toJSON()));
             return this;
         }
     });
@@ -63,6 +65,22 @@ App.Router = Backbone.Router.extend({
     },
 
     index: function() {
-        console.log('Index!!!');
+        //console.log('Index!!!');
     }
 });
+
+App.Collections.Contacts = Backbone.Collection.extend({
+    model: App.Models.Contact,
+    url: '/contacts'
+
+});
+
+App.Models.Contact = Backbone.Model.extend({
+
+});
+
+App.Views.App = Backbone.View.extend({
+    initialize: function() {
+        console.log(this.collection.toJSON());
+    }
+})

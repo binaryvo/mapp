@@ -13,8 +13,19 @@
 
 <div id="app"></div>
 
+<table id="all_users_table">
+    <thead>
+        <tr>Name</tr>
+        <tr>Email</tr>
+    </thead>
+</table>
 
 <script type="text/javascript" src="{{ URL::asset('js/app/backbone/app.js') }}" ></script>
+
+<script id="userTpl" type="text/template">
+    <td>name</td>
+    <td>email</td>
+</script>
 
 <script type="text/javascript">
     new App.Router();
@@ -23,7 +34,7 @@
 
     App.users = new App.Collections.Users();
     App.users.fetch().then(function() {
-        new App.Views.User({collection: App.users});
+        new App.Views.App({collection: App.users});
     });
 </script>
 
