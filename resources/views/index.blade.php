@@ -1,41 +1,33 @@
 <html lang="en">
 <head>
     <title></title>
-    <script src="{{ URL::asset('js/underscore-min.js') }}"></script>
-    <script src="{{ URL::asset('js/jquery-1.11.3.min.js') }}"></script>
-    <script src="{{ URL::asset('js/backbone-min.js') }}"></script>
-    <script src="{{ URL::asset('js/backbone.marionette.min.js') }}"></script>
-
+    <script data-main="js/init" src="{{ URL::asset('js/libs/require.js') }}"></script>
     <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}" />
 </head>
 <body>
 
 
-<div id="app"></div>
+<div id="app" class="container-fluid"></div>
 
-<table id="all_users_table">
+<table id="all_users_table" class="table">
     <thead>
-        <tr>Name</tr>
-        <tr>Email</tr>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th></th>
+            <th></th>
+        </tr>
     </thead>
 </table>
 
-<script type="text/javascript" src="{{ URL::asset('js/app/backbone/app.js') }}" ></script>
 
 <script id="userTpl" type="text/template">
-    <td>name</td>
-    <td>email</td>
-</script>
-
-<script type="text/javascript">
-    new App.Router();
-
-    Backbone.history.start();
-
-    App.users = new App.Collections.Users();
-    App.users.fetch().then(function() {
-        new App.Views.App({collection: App.users});
-    });
+    <td><%= id %></td>
+    <td><%= name %></td>
+    <td><%= email %></td>
+    <td><button>Edit</button></td>
+    <td><button class="delete">Delete</button></td>
 </script>
 
 </body>
