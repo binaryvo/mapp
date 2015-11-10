@@ -44,7 +44,11 @@ class UserController extends Controller
         $user->fill($input);
         $user->save();
 
-        return json_encode($input);
+        return json_encode(array(
+            'id' => $user->id,
+            'name' => $user->name,
+            'email' => $user->email
+        ));
     }
 
     /**

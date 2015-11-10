@@ -3,11 +3,11 @@ requirejs.config({
     paths: {
         jquery: 'libs/jquery/jquery-1.11.3.min',
         backbone: 'libs/backbone/backbone-min',
-        underscore: 'libs/underscore/underscore-min'//,
-/*        appControllers: 'controllers',
+        underscore: 'libs/underscore/underscore-min',
+        appControllers: 'controllers',
         appCollections: 'collections',
         appModels: 'models',
-        appViews: 'views'*/
+        appViews: 'views'
     },
     shim: {
         'underscore': {

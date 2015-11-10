@@ -1,7 +1,8 @@
 define([
     'backbone',
-    'views/users/list'
-], function(Backbone, UserListView) {
+    'views/users/list',
+    'views/users/add'
+], function(Backbone, UserListView, UserAddView) {
 
     var AppRouter = Backbone.Router.extend({
         routes: {
@@ -19,6 +20,9 @@ define([
         app_router.on('route:showListPage', function(){
             var userListView = new UserListView();
             userListView.render();
+
+            var userAddView = new UserAddView({collection: userListView.collection});
+
         });
 
         app_router.on('route:defaultAction', function(actions){

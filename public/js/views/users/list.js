@@ -23,7 +23,6 @@ define([
 
         addOne: function(user) {
             var userItem = new UserItemView({model: user});
-            //console.log(user.render().el);
             this.$el.append(userItem.render().el);
         }
     });

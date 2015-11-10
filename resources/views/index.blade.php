@@ -6,28 +6,69 @@
 </head>
 <body>
 
+<div class="container">
 
-<div id="app" class="container-fluid"></div>
+    <nav class="navbar navbar-inverse">
+        <ul class="nav navbar-nav">
+            <li><a href="#">View All Users</a></li>
+            <li><a href="#">Create a User</a>
+        </ul>
+    </nav>
 
-<table id="all_users_table" class="table">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>
-</table>
+
+    <div id="app" class="container-fluid"></div>
+
+    <div class="user-add">
+        <form id="form-user">
+            <div class="form-group">
+                <label for="input-name">Name</label>
+                <input type="text" name="name" id="input-name" />
+            </div>
+            <div class="form-group">
+                <label for="input-email">Email</label>
+                <input type="text" name="email" id="input-email" />
+            </div>
+            <input type="submit" value="Add User" class="btn btn-primary" />
+        </form>
+    </div>
+
+    <div id="main-page">
+        <table id="all_users_table" class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
 
 
 <script id="userTpl" type="text/template">
     <td><%= id %></td>
     <td><%= name %></td>
     <td><%= email %></td>
-    <td><button>Edit</button></td>
-    <td><button class="delete">Delete</button></td>
+    <td><button class="btn btn-small btn-info edit">Edit</button></td>
+    <td><button class="btn btn-small btn-danger delete">Delete</button></td>
+</script>
+
+<script id="userEditTpl" type="text/template">
+    <form id="form-user">
+        <input type="hidden" name="id" id="input-id" value="<%= id %>" />
+        <div class="form-group">
+            <label for="input-name">Name</label>
+            <input type="text" name="name" id="input-name" value="<%= name %>" />
+        </div>
+        <div class="form-group">
+            <label for="input-email">Email</label>
+            <input type="text" name="email" id="input-email" value="<%= email %>" />
+        </div>
+        <input type="submit" value="Update User" class="btn btn-primary" />
+    </form>
 </script>
 
 </body>

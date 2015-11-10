@@ -1,4 +1,11 @@
-define(['appModels/user.model', 'appViews/user.view', 'appControllers/user.controller', 'appCollections/user.collection', 'jquery', 'backbone'], function(baseModel, View, Controller, Collection, $, Backbone){
+define([
+	'appModels/user.model',
+	'appViews/user.view',
+	'appControllers/user.controller',
+	'appCollections/user.collection',
+	'jquery',
+	'backbone'
+], function(baseModel, View, Controller, Collection, $, Backbone){
 
 	var App = (function() {
 
@@ -41,7 +48,7 @@ define(['appModels/user.model', 'appViews/user.view', 'appControllers/user.contr
 
 			initView: function() {
 
-				appView = new View({ model: appModel, templates: appTemplates, el: $("#main-content")});
+				appView = new View({ model: appModel, el: $("#main-content")});
 
                 appViewUsers = new ViewUsers({ collection: appCollection, model: appModel, templates: appTemplates, el: $("#main-content")});
 
