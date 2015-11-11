@@ -32,6 +32,8 @@
         </form>
     </div>
 
+    <div class="user-edit-form-container"></div>
+
     <div id="main-page">
         <table id="all_users_table" class="table">
             <thead>
@@ -39,8 +41,8 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
-                    <th></th>
-                    <th></th>
+                    <th class="col-xs-1"></th>
+                    <th class="col-xs-1"></th>
                 </tr>
             </thead>
         </table>
@@ -57,15 +59,14 @@
 </script>
 
 <script id="userEditTpl" type="text/template">
-    <form id="form-user">
-        <input type="hidden" name="id" id="input-id" value="<%= id %>" />
+    <form id="form-user-edit">
         <div class="form-group">
             <label for="input-name">Name</label>
-            <input type="text" name="name" id="input-name" value="<%= name %>" />
+            <input type="text" name="name" value="<%= name %>" />
         </div>
         <div class="form-group">
             <label for="input-email">Email</label>
-            <input type="text" name="email" id="input-email" value="<%= email %>" />
+            <input type="text" name="email" value="<%= email %>" />
         </div>
         <input type="submit" value="Update User" class="btn btn-primary" />
     </form>

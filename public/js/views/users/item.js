@@ -5,11 +5,13 @@ define([
 
     var UserItemView = Backbone.View.extend({
         tagName: 'tr',
+        ui: {
+            editFormContainer: '.user-edit-form-container',
+        },
 
         initialize: function () {
-            this.model.on('destroy', function() {
-                this.remove()
-            }, this);
+            this.model.on('destroy', this.remove, this);
+            this.model.on('change', this.render, this);
         },
 
         events: {
@@ -23,7 +25,7 @@ define([
 
         editUser: function() {
             var userEditView = new UserEditView({model: this.model});
-            $('body').append(userEditView.el);
+            $(this.ui.editFormContainer).html(userEditView.el);
         },
 
         render: function () {

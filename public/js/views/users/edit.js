@@ -4,30 +4,39 @@ define([
 
     var UserEditView = Backbone.View.extend({
         template: '#userEditTpl',
+        ui: {
+            editFormContainer: '.user-edit-form-container',
+            form: '#form-user-edit',
+            name: '#form-user-edit input[name=name]',
+            email: '#form-user-edit input[name=email]'
+        },
 
         initialize: function() {
             this.render();
         },
 
         events: {
-            'submit':  'updateUser'
+            'submit #form-user-edit':  'updateUser'
         },
 
         updateUser: function(e) {
             e.preventDefault();
-            //console.log('user added');
 
-            this.collection.create({
-                name: this.ui.name.val(),
-                email: this.ui.email.val()
-            }, {wait: true});
+            this.model.save({
+                name: $(this.ui.name).val(),
+                email: $(this.ui.email).val()
+            });
 
-            this.clearForm();
+            this.closeForm();
+        },
+
+        closeForm: function() {
+            $(this.ui.editFormContainer).html('');
         },
 
         clearForm: function() {
-            this.ui.name.val('');
-            this.ui.email.val('');
+            $(this.ui.name).val('');
+            $(this.ui.email).val('');
         },
 
         render: function() {
