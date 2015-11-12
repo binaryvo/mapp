@@ -19,6 +19,8 @@ define([
             }, {wait: true});
 
             this.clearForm();
+
+            this.router.navigate('/');
         },
 
         clearForm: function() {
