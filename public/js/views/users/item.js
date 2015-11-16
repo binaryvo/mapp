@@ -25,7 +25,8 @@ define([
 
         editUser: function() {
             var userEditView = new UserEditView({model: this.model});
-            $(this.ui.editFormContainer).html(userEditView.el);
+            //$('#app').html(userEditView.el);
+            //this.router.showBlock(userEditView.el);
         },
 
         render: function () {

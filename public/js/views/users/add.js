@@ -11,7 +11,6 @@ define([
 
         addUser: function(e) {
             e.preventDefault();
-            //console.log('user added');
 
             this.collection.create({
                 name: this.$('#input-name').val(),
@@ -20,7 +19,7 @@ define([
 
             this.clearForm();
 
-            this.router.navigate('/');
+            Backbone.history.navigate('', {trigger: true});
         },
 
         clearForm: function() {

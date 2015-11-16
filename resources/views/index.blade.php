@@ -11,14 +11,14 @@
     <nav class="navbar navbar-inverse">
         <ul class="nav navbar-nav">
             <li><a href="#">View All Users</a></li>
-            <li><a href="#">Create a User</a>
+            <li><a href="#add">Create a User</a>
         </ul>
     </nav>
 
 
     <div id="app" class="container-fluid"></div>
 
-    <div class="user-add">
+    <div id="user-add-container" class="user-add" style="display:none">
         <form id="form-user">
             <div class="form-group">
                 <label for="input-name">Name</label>
@@ -32,18 +32,16 @@
         </form>
     </div>
 
-    <div class="user-edit-form-container"></div>
-
-    <div id="main-page">
+    <div id="user-list-container" style="display:none">
         <table id="all_users_table" class="table">
             <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th class="col-xs-1"></th>
-                    <th class="col-xs-1"></th>
-                </tr>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th class="col-xs-1"></th>
+                <th class="col-xs-1"></th>
+            </tr>
             </thead>
         </table>
     </div>

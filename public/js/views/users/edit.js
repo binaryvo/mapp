@@ -31,7 +31,8 @@ define([
         },
 
         closeForm: function() {
-            $(this.ui.editFormContainer).html('');
+            console.log('navigate to');
+            Backbone.history.navigate('', {trigger: true});
         },
 
         clearForm: function() {
