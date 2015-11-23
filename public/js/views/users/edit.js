@@ -11,12 +11,14 @@ define([
             email: '#form-user-edit input[name=email]'
         },
 
-        initialize: function() {
+        initialize: function(options) {
+            this.options = options;
             this.render();
         },
 
         events: {
-            'submit #form-user-edit':  'updateUser'
+            'submit #form-user-edit':  'updateUser',
+            'click .btn-cancel' : 'closeForm'
         },
 
         updateUser: function(e) {
@@ -31,7 +33,7 @@ define([
         },
 
         closeForm: function() {
-            console.log('navigate to');
+            console.log('navigate to the list');
             Backbone.history.navigate('', {trigger: true});
         },
 

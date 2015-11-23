@@ -7,14 +7,18 @@ requirejs.config({
         appControllers: 'controllers',
         appCollections: 'collections',
         appModels: 'models',
-        appViews: 'views'
+        appViews: 'views',
+        bootstrap: 'libs/bootstrap/bootstrap'
     },
     shim: {
         'underscore': {
             exports: '_'
         },
+        'bootstrap': {
+            deps: ['jquery']
+        },
         'backbone': {
-            deps: ['underscore', 'jquery'],
+            deps: ['underscore', 'jquery', 'bootstrap'],
             exports: 'Backbone'
         }
     }

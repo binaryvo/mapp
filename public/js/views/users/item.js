@@ -9,7 +9,8 @@ define([
             editFormContainer: '.user-edit-form-container',
         },
 
-        initialize: function () {
+        initialize: function (options) {
+            this.options = options;
             this.model.on('destroy', this.remove, this);
             this.model.on('change', this.render, this);
         },
@@ -25,8 +26,7 @@ define([
 
         editUser: function() {
             var userEditView = new UserEditView({model: this.model});
-            //$('#app').html(userEditView.el);
-            //this.router.showBlock(userEditView.el);
+            this.options.router.showBlock(userEditView.el);
         },
 
         render: function () {

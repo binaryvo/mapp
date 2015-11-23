@@ -15,33 +15,44 @@ define([
 
         showBlock: function(block) {
             if ($("#app").html()) {
-                $($("#app").children()).css('display', 'none').appendTo('body');
+                $($("#app").children()).hide().appendTo('body');
+            }
+            var innerContainer = $(block);
+            $("#app").append(innerContainer);
+            innerContainer.show();
+        },
+/*
+        showModal: function(block, title) {
+            if ($("#modal-container .modal-body").html()) {
+                $($("#modal-container .modal-body").children()).css('display', 'none').appendTo('body');
             }
 
             var innerContainer = $(block);
-            $("#app").append(innerContainer);
-            innerContainer.css('display', 'block');
+            var template = _.template($("#modal-container").html());
+            var compiledTemplate = template({content: innerContainer.show(), title: title});
+            $(compiledTemplate).show().modal('show');
         }
-
+*/
     });
 
     var initialize = function(){
-        var app_router = new AppRouter;
+        self = this;
+        var router = new AppRouter;
 
-        var userListView = new UserListView({xxx: app_router});
+        var userListView = new UserListView({router: router});
         userListView.render();
 
         var userAddView = new UserAddView({collection: userListView.collection});
 
-        app_router.on('route:showListPage', function(){
-            this.showBlock("#user-list-container");
+        router.on('route:showListPage', function(){
+            router.showBlock("#user-list-container");
         });
 
-        app_router.on('route:addUserPage', function() {
-            this.showBlock("#user-add-container");
+        router.on('route:addUserPage', function() {
+            router.showBlock("#user-add-container");
         });
 
-        app_router.on('route:defaultAction', function(actions){
+        router.on('route:defaultAction', function(actions){
             console.log('No route:', actions);
         });
 

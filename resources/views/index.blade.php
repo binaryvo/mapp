@@ -28,6 +28,7 @@
                 <label for="input-email">Email</label>
                 <input type="text" name="email" id="input-email" />
             </div>
+            <input type="button" value="Cancel" class="btn btn-cancel" />
             <input type="submit" value="Add User" class="btn btn-primary" />
         </form>
     </div>
@@ -66,9 +67,26 @@
             <label for="input-email">Email</label>
             <input type="text" name="email" value="<%= email %>" />
         </div>
+        <input type="button" value="Cancel" class="btn btn-cancel" />
         <input type="submit" value="Update User" class="btn btn-primary" />
     </form>
 </script>
+
+<div id="modal-container" class="user-add modal fade" style="display:none">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"><%= title %></h4>
+            </div>
+            <div class="modal-body">
+                <%= content %>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
