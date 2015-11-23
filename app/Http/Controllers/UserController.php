@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Response;
 
 class UserController extends Controller
 {
@@ -38,6 +39,11 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required|unique:users|max:255',
+            'email' => 'required|email',
+        ]);
+
         $input = Input::all();
 
         $user = new User();
@@ -84,9 +90,20 @@ class UserController extends Controller
     {
         $input = Input::all();
 
+        $this->validate($request, [
+            'name' => 'required|unique:users,name,' . $id . '|max:255',
+            'email' => 'required|email',
+        ]);
+
         $user = User::find($id);
         $user->fill($input);
         $user->save();
+
+        return Response::json(array(
+            'id' => $user->id,
+            'name' => $user->name,
+            'email' => $user->email
+        ));
     }
 
     /**

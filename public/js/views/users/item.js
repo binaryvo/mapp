@@ -27,6 +27,7 @@ define([
         editUser: function() {
             var userEditView = new UserEditView({model: this.model});
             this.options.router.showBlock(userEditView.el);
+            //Backbone.history.navigate('edit/' + this.model.id, {trigger: true});//.editUserPage(this.model.id);
         },
 
         render: function () {

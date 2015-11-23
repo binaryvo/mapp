@@ -58,17 +58,24 @@
 </script>
 
 <script id="userEditTpl" type="text/template">
-    <form id="form-user-edit">
-        <div class="form-group">
-            <label for="input-name">Name</label>
-            <input type="text" name="name" value="<%= name %>" />
+    <form id="form-user-edit" class="form-horizontal">
+        <div class="form-group control-group">
+            <label class="control-label col-sm-1" for="input-name">Name</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" name="name" value="<%= name %>" />
+            </div>
         </div>
-        <div class="form-group">
-            <label for="input-email">Email</label>
-            <input type="text" name="email" value="<%= email %>" />
+        <div class="form-group control-group">
+            <label class="control-label col-sm-1" for="input-email">Email</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" name="email" value="<%= email %>" />
+            </div>
         </div>
-        <input type="button" value="Cancel" class="btn btn-cancel" />
-        <input type="submit" value="Update User" class="btn btn-primary" />
+
+        <div class="col-sm-10 pull-right">
+            <input type="button" value="Cancel" class="btn btn-cancel" />
+            <input type="submit" value="Update User" class="btn btn-primary" />
+        </div>
     </form>
 </script>
 
