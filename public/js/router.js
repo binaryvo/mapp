@@ -51,6 +51,7 @@ define([
         });
 
         router.on('route:addUserPage', function() {
+            userAddView.render();
             router.showBlock("#user-add-container");
         });
 /*

@@ -1,7 +1,8 @@
 define([
     'backbone',
     'views/users/edit',
-], function(Backbone, UserEditView) {
+    'views/confirmation',
+], function(Backbone, UserEditView, ConfirmationDialog) {
 
     var UserItemView = Backbone.View.extend({
         tagName: 'tr',
@@ -21,7 +22,17 @@ define([
         },
 
         removeUser: function() {
-            this.model.destroy();
+            var self = this;
+
+            var confirmation = new ConfirmationDialog({
+                    text: 'Do you really want to remove User?',
+                    onYes: function() {
+                        self.model.destroy();
+                    }
+                }
+            );
+
+            //this.model.destroy();
         },
 
         editUser: function() {

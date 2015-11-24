@@ -47,7 +47,6 @@ define([
 
         closeForm: function() {
             this.clearForm();
-            //console.log('navigate to the list');
             //Backbone.history.navigate('', {trigger: true});
             Backbone.history.loadUrl(Backbone.history.fragment);
         },
@@ -58,7 +57,6 @@ define([
         },
 
         render: function() {
-            //this.options.router.showBlock("#user-add-container");
             var template = _.template($(this.template).html());
             var compiledTemplate = template(this.model.toJSON());
             this.$el.html(compiledTemplate);
