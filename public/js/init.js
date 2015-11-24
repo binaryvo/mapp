@@ -8,11 +8,15 @@ requirejs.config({
         appCollections: 'collections',
         appModels: 'models',
         appViews: 'views',
-        bootstrap: 'libs/bootstrap/bootstrap'
+        bootstrap: 'libs/bootstrap/bootstrap',
+        bootstrapModal: 'libs/backbone.bootstrap-modal-master/src/backbone.bootstrap-modal'
     },
     shim: {
         'underscore': {
             exports: '_'
+        },
+        bootstrapModal: {
+            deps: ['backbone']
         },
         'bootstrap': {
             deps: ['jquery']

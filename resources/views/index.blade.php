@@ -88,40 +88,5 @@
     </form>
 </script>
 
-<script type="text/template" id="confirmation-dialog">
-    <div class="modal fade" id="confirmation-window">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    Confirmation
-                </div>
-                <div class="modal-body">
-                    <%= text %>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" data-dismiss="modal" class="btn btn-primary button-yes">Yes</button>
-                    <button type="button" data-dismiss="modal" class="btn">No</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</script>
-
-<div id="modal-container" class="modal fade" style="display:none">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title"><%= title %></h4>
-            </div>
-            <div class="modal-body">
-                <%= content %>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div>
-
 </body>
 </html>

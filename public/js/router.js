@@ -22,19 +22,7 @@ define([
             var innerContainer = $(block);
             $("#app").append(innerContainer);
             innerContainer.show();
-        },
-/*
-        showModal: function(block, title) {
-            if ($("#modal-container .modal-body").html()) {
-                $($("#modal-container .modal-body").children()).css('display', 'none').appendTo('body');
-            }
-
-            var innerContainer = $(block);
-            var template = _.template($("#modal-container").html());
-            var compiledTemplate = template({content: innerContainer.show(), title: title});
-            $(compiledTemplate).show().modal('show');
         }
-*/
     });
 
     var initialize = function(){
@@ -54,15 +42,7 @@ define([
             userAddView.render();
             router.showBlock("#user-add-container");
         });
-/*
-        router.on('route:editUserPage', function(options) {
-            debugger;
-            var userEditView = new UserEditView({model: this.model, router: this.router});
-            userEditView.render();
-            //this.options.router.showBlock(userEditView.el);
-            //router.showBlock("#user-add-container");
-        });
-*/
+
         router.on('route:defaultAction', function(actions){
             console.log('No route:', actions);
         });

@@ -1,13 +1,13 @@
 define([
     'backbone',
+    'bootstrapModal',
     'views/users/edit',
-    'views/confirmation',
-], function(Backbone, UserEditView, ConfirmationDialog) {
+], function(Backbone, BootstrapModal, UserEditView) {
 
     var UserItemView = Backbone.View.extend({
         tagName: 'tr',
         ui: {
-            editFormContainer: '.user-edit-form-container',
+            editFormContainer: '.user-edit-form-container'
         },
 
         initialize: function (options) {
@@ -24,21 +24,22 @@ define([
         removeUser: function() {
             var self = this;
 
-            var confirmation = new ConfirmationDialog({
-                    text: 'Do you really want to remove User?',
-                    onYes: function() {
-                        self.model.destroy();
-                    }
-                }
-            );
+            var modal = new Backbone.BootstrapModal({
+                content: 'Do you really want to delete User?',
+                title: 'Confirmation',
+                animate: true
+            }).open(function(){
+                self.deleteUser(self.model);
+            });
+        },
 
-            //this.model.destroy();
+        deleteUser: function(model) {
+            model.destroy();
         },
 
         editUser: function() {
             var userEditView = new UserEditView({model: this.model});
             this.options.router.showBlock(userEditView.el);
-            //Backbone.history.navigate('edit/' + this.model.id, {trigger: true});//.editUserPage(this.model.id);
         },
 
         render: function () {
